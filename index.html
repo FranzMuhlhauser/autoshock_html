@@ -9,6 +9,9 @@
       content="Auto Shock ofrece amortiguadores, trenes delanteros y repuestos automotrices de alta calidad. Más de 25 años de experiencia en Viña del Mar, Chile."
     />
     <link rel="canonical" href="https://autoshock.cl/" />
+    
+    <!-- === Content Security Policy (CSP) === -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com; connect-src 'self' https://wa.me https://formsubmit.co;">
 
     <!-- === Favicons === -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/logo_auto_shock.webp">
@@ -53,8 +56,8 @@
     <link rel="preload" href="images/logo_auto_shock.webp" as="image" />
 
     <!-- Estilos locales y mejoras UX -->
-    <link rel="stylesheet" href="css/style.css?v=7.0" />
-    <link rel="stylesheet" href="css/ux_enhancements.css?v=7.0" />
+    <link rel="stylesheet" href="css/style.min.css?v=7.0" />
+    <link rel="stylesheet" href="css/ux_enhancements.min.css?v=7.0" />
 
     <!-- === Datos Estructurados: SEO Local === -->
     <script type="application/ld+json">
@@ -125,6 +128,38 @@
             "@type": "Answer",
             "text": "Sí, disponemos de un inventario completo de amortiguadores y soluciones para tren delantero diseñadas para la gran mayoría de marcas presentes en Chile. Cubrimos modelos de Toyota, Honda, Nissan, Chevrolet, Ford, Hyundai, Kia, Mitsubishi y prácticamente cualquier fabricante del mercado nacional. Nuestra asesoría técnica personalizada te ayudará a encontrar el repuesto exacto que tu vehículo necesita."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hacen envíos a otras regiones de Chile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, realizamos envíos a todo Chile a través de servicios de transporte seguro. Puedes coordinar tu pedido por WhatsApp o teléfono, y despachamos el mismo día si la compra se realiza antes de las 15:00 hrs. Los tiempos de entrega varían entre 2 a 5 días hábiles según la región."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los amortiguadores tienen garantía?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Todos nuestros amortiguadores cuentan con garantía de fábrica que cubre defectos de fabricación por 12 meses o 20,000 km desde la fecha de compra. La garantía no cubre daños por instalación incorrecta, accidentes o desgaste normal por uso. Conserva tu boleta de compra para hacer válida la garantía."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre amortiguador a gas e hidráulico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los amortiguadores a gas ofrecen mayor respuesta inmediata y estabilidad en curvas, ideales para conducción deportiva o carga pesada. Los hidráulicos proporcionan un confort más suave, recomendados para uso citadino. En Auto Shock te asesoramos para elegir el tipo correcto según tu vehículo y estilo de conducción."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde están ubicados en Viña del Mar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Estamos ubicados en Av. Benidorm 1280, Viña del Mar, Región de Valparaíso. Nuestro local está a pocas cuadras del centro y contamos con estacionamiento para clientes. Atendemos de lunes a viernes de 9:00 a 18:00 hrs y sábados de 9:00 a 13:00 hrs."
+          }
         }
       ]
     }
@@ -158,7 +193,6 @@
         <a href="index.html" class="nav-logo" aria-label="Auto Shock - Inicio">
           <img
             src="images/logo_auto_shock.webp" srcset="images/logo_auto_shock.webp 1x, images/logo_auto_shock@2x.webp 2x"
-            srcset="images/logo_auto_shock.webp 1x, images/logo_auto_shock@2x.webp 2x"
             alt="Logo Auto Shock"
             width="180"
             height="120"
@@ -231,7 +265,8 @@
                 loop
                 muted
                 playsinline
-                preload="auto"
+                preload="metadata"
+                poster="images/logo_auto_shock.webp"
               >
                 <source src="videos/hero3.mp4" type="video/mp4" />
               </video>
@@ -304,19 +339,16 @@
         </div>
       </section>
 
-      <!-- ====== VIDEO SEPARATOR (PROMO) ====== -->
+      <!-- ====== IMAGEN PROMO MOBILE (reemplaza video para ahorrar datos móvil) ====== -->
       <section class="video-promo-banner reveal mobile-only">
         <div class="video-wrapper">
-          <video
+          <img
+            src="images/hero/hero_productos_mobile.webp"
+            alt="Auto Shock – Especialistas en Amortiguadores en Viña del Mar"
             class="hero-video-element"
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="auto"
-          >
-            <source src="videos/hero3.mp4" type="video/mp4" />
-          </video>
+            loading="lazy"
+            style="object-fit: cover; width: 100%; height: 100%;"
+          />
           <div class="video-overlay"></div>
         </div>
       </section>
@@ -391,13 +423,7 @@
                 </div>
                 <h4 style="font-family: var(--font-headline); font-size: 1.1rem; color: var(--yellow); margin-bottom: 0.5rem;">Tren Delantero</h4>
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Axiales, bandejas, bieletas, cazoletas, espirales, rótulas y terminales.</p>
-              </p>
-              <a
-                href="productos.html#tren-delantero"
-                class="btn btn-outline"
-                style="width: 100%"
-                >Ver más</a
-              >
+              <a href="productos.html#tren-delantero" class="btn btn-outline" style="width: 100%">Ver más</a>
             </article>
           </div>
           <div class="text-center mt-6 reveal">
@@ -418,13 +444,13 @@
           <div class="contact-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
             
             <div class="contact-card testimonial-item-premium" style="padding: 2rem;">
-              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
+              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;" role="img" aria-label="5 de 5 estrellas">
                 <!-- 5 stars -->
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <p style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-primary);">"Excelente atención y asesoría técnica. Me explicaron por qué mi auto rebotaba en las curvas y me recomendaron los amortiguadores precisos. Ahora siento mi vehículo como nuevo, muy seguro."</p>
               <div class="testimonial-author">
@@ -434,12 +460,12 @@
             </div>
 
             <div class="contact-card testimonial-item-premium" style="padding: 2rem;">
-              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;" role="img" aria-label="5 de 5 estrellas">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <p style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-primary);">"Había cotizado en varios lados, pero solo aquí en Auto Shock me dieron la confianza técnica que buscaba. No te venden lo más caro, te venden lo que tu auto realmente requiere por seguridad."</p>
               <div class="testimonial-author">
@@ -449,12 +475,12 @@
             </div>
 
             <div class="contact-card testimonial-item-premium" style="padding: 2rem;">
-              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;" role="img" aria-label="5 de 5 estrellas">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <p style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-primary);">"Fui por un ruido en el tren delantero, lo diagnosticaron al instante y en el mismo día me entregaron el repuesto exacto: KYB originales. Destaco la agilidad y el trato humano impecable."</p>
               <div class="testimonial-author">
@@ -543,21 +569,21 @@
                     <div class="video-item">
                       <h4 class="video-item-title">Sistemas de Suspensión</h4>
                       <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/nB4i-LaIdPY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/nB4i-LaIdPY" title="Video: Sistemas de Suspensión Automotriz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                       </div>
                     </div>
 
                     <div class="video-item">
                       <h4 class="video-item-title">Funcionamiento Técnico</h4>
                       <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/Yocn5L4rOy0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/Yocn5L4rOy0" title="Video: Funcionamiento Técnico del Amortiguador" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                       </div>
                     </div>
 
                     <div class="video-item">
                       <h4 class="video-item-title">Mantenimiento y Tips</h4>
                       <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/j0vhTg82Pz0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/j0vhTg82Pz0" title="Video: Mantenimiento y Tips de Suspensión" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                       </div>
                     </div>
                   </div>
@@ -578,17 +604,8 @@
               Incurre en confianza real hoy. Mientras otros te ofrecen stock, nosotros te garantizamos calidad certificada y la seguridad de los mejores especialistas en amortiguación de la región.
             </p>
             <div class="btn-group">
-              <a href="https://wa.me/56986908605?text=Hola,%20he%20visitado%20tu%20p%C3%A1gina%20web%20y%20solicito%20Atenci%C3%B3n%20T%C3%A9cnica%20Directa%20sobre%20amortiguaci%C3%B3n%20y%20seguridad%20para%20mi%20veh%C3%ADculo." target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" class="btn btn-primary btn-lg"
-                >Atención Técnica Directa</a
-              >
-              <a
-                href="contacto.html"
-                class="btn btn-ghost btn-lg"
-              >
-                Solicitar Cotización
-              </a>
-            </div>
-            </a>
+              <a href="https://wa.me/56986908605?text=Hola,%20he%20visitado%20tu%20p%C3%A1gina%20web%20y%20solicito%20Atenci%C3%B3n%20T%C3%A9cnica%20Directa%20sobre%20amortiguaci%C3%B3n%20y%20seguridad%20para%20mi%20veh%C3%ADculo." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Atención Técnica Directa</a>
+              <a href="contacto.html" class="btn btn-ghost btn-lg">Solicitar Cotización</a>
             </div>
           </div>
         </div>

@@ -474,25 +474,33 @@ function initAccordion() {
   const accordionItems = document.querySelectorAll(".faq-item");
   if (!accordionItems.length) return;
 
-  accordionItems.forEach((item) => {
+  accordionItems.forEach((item, index) => {
     const header = item.querySelector(".faq-header");
     const content = item.querySelector(".faq-content");
-    
+
+    // Accessibility: set IDs and ARIA attributes
+    const contentId = `faq-content-${index}`;
+    if (content) content.id = contentId;
+    header.setAttribute("aria-expanded", "false");
+    header.setAttribute("aria-controls", contentId);
+    if (content) content.setAttribute("role", "region");
+
     header.addEventListener("click", () => {
       const isActive = item.classList.contains("active");
 
-      // Close all other items (optional, but cleaner)
+      // Close all other items
       accordionItems.forEach((otherItem) => {
         otherItem.classList.remove("active");
+        const otherHeader = otherItem.querySelector(".faq-header");
         const otherContent = otherItem.querySelector(".faq-content");
-        if (otherContent) {
-          otherContent.style.maxHeight = null;
-        }
+        if (otherHeader) otherHeader.setAttribute("aria-expanded", "false");
+        if (otherContent) otherContent.style.maxHeight = null;
       });
 
       // Toggle current item
       if (!isActive) {
         item.classList.add("active");
+        header.setAttribute("aria-expanded", "true");
         if (content) {
           content.style.maxHeight = content.scrollHeight + "px";
         }
