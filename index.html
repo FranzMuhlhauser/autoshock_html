@@ -180,6 +180,45 @@
           ".hero h1"
         ]
       }
+    </script>
+
+    <!-- === AEO: Review Schema (Rich Snippets con estrellas en Google) === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Auto Shock",
+      "url": "https://autoshock.cl",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "3",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Carlos M." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Excelente atención y asesoría técnica. Me explicaron por qué mi auto rebotaba en las curvas y me recomendaron los amortiguadores precisos. Ahora siento mi vehículo como nuevo, muy seguro.",
+          "datePublished": "2026-01-15"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Andrea Valdés" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Había cotizado en varios lados, pero solo aquí en Auto Shock me dieron la confianza técnica que buscaba. No te venden lo más caro, te venden lo que tu auto realmente requiere.",
+          "datePublished": "2026-02-03"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Tomás R." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Fui por un ruido en el tren delantero, lo diagnosticaron al instante y en el mismo día me entregaron el repuesto exacto: KYB originales.",
+          "datePublished": "2026-02-20"
+        }
+      ]
     }
     </script>
   </head>
