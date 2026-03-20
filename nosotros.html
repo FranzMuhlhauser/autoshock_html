@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://autoshock.cl/images/logo_auto_shock.webp" />
   
   <!-- === Content Security Policy (CSP) === -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com; connect-src 'self' https://wa.me https://formsubmit.co;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube.com; connect-src 'self' https://wa.me https://formsubmit.co;">
 
   <!-- === Rendimiento: Preconexiones === -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -189,13 +189,6 @@
           </div>
         </div>
       </div>
-      <style>
-        .technical-commitment-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
-        .tech-features { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-        .tech-stats-box { padding: 2.5rem; border-left: 4px solid var(--yellow); }
-        .tech-stats-box li::before { content: "→"; position: absolute; left: 0; color: var(--yellow); }
-        @media (max-width: 768px) { .technical-commitment-grid { grid-template-columns: 1fr; gap: 2rem; } .tech-features { grid-template-columns: 1fr; } }
-      </style>
     </section>
 
     <!-- ====== VALORES ====== -->
