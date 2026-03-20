@@ -460,7 +460,11 @@
         display: none !important;
     }
 
+    /* FIX: solo mostrar showcase-content dentro de grupo activo, evita residuos entre categorías */
     .showcase-content {
+        display: none !important;
+    }
+    .mobile-group-wrapper.active-group .showcase-content {
         display: block !important;
         margin-bottom: 3rem;
     }
@@ -538,9 +542,10 @@
     }
 
     .product-brand-logos-featured img, .product-brand-logos img {
-        height: 22px !important;
+        height: 42px !important;
         width: auto !important;
         filter: brightness(1.2);
+        max-width: 120px !important;
     }
 
     .brand-tag-group {

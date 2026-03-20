@@ -254,11 +254,13 @@
               </div>
               <div class="showcase-media">
                 <div class="product-images">
-                  <div class="product-img-wrapper">
-                    <img src="images/productos/amortiguadores_gabriel.webp" alt="Amortiguadores Gabriel" class="img-rotate-left" width="460" height="370" loading="lazy" />
-                  </div>
-                  <div class="product-img-wrapper">
+                  <!-- Imagen principal: visible en todas las pantallas -->
+                  <div class="product-img-wrapper" style="flex: 0 1 180px; max-width: 200px;">
                     <img src="images/productos/amortiguador_kyb.webp" alt="Amortiguador KYB" class="img-rotate-right" width="478" height="521" loading="lazy" />
+                  </div>
+                  <!-- Segunda imagen: solo desktop -->
+                  <div class="product-img-wrapper desktop-only" style="flex: 0 1 180px; max-width: 200px;">
+                    <img src="images/productos/amortiguadores_gabriel.webp" alt="Amortiguadores Gabriel" class="img-rotate-left" width="460" height="370" loading="lazy" />
                   </div>
                 </div>
               </div>
