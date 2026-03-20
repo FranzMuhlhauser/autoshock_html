@@ -1064,8 +1064,13 @@
     #camiones .logo-prt { grid-row: 3; grid-column: span 2; height: 35px !important; width: auto; max-width: 100%; }
     
     /* === Accessibility: Minimum Font Size (WCAG AA - 14px minimum) === */
-    body, p, span, label, input, textarea, select, button, a, li, td, th, small {
+    /* NOTE: 'span' excluido intencionalmente — los <span> dentro de h1/h2 deben heredar el tamaño del heading */
+    body, p, label, input, textarea, select, button, a, li, td, th, small {
         font-size: min(1rem, max(0.875rem, 14px)) !important;
+    }
+    /* Restaurar herencia en spans dentro de headings */
+    h1 span, h2 span, h3 span, h4 span {
+        font-size: inherit !important;
     }
     
     .hero-stats .stat, .stat-label, .badge, .btn-mini, .brand-tag, .wa-header-info span, .footer-tagline {
