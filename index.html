@@ -53,8 +53,8 @@
     <link rel="preload" href="images/logo_auto_shock.webp" as="image" />
 
     <!-- Estilos locales y mejoras UX -->
-    <link rel="stylesheet" href="css/style.min.css" />
-    <link rel="stylesheet" href="css/ux_enhancements.min.css" />
+    <link rel="stylesheet" href="css/style.css?v=7.0" />
+    <link rel="stylesheet" href="css/ux_enhancements.css?v=7.0" />
 
     <!-- === Datos Estructurados: SEO Local === -->
     <script type="application/ld+json">
@@ -232,7 +232,6 @@
                 muted
                 playsinline
                 preload="auto"
-                poster="images/logo_auto_shock.webp"
               >
                 <source src="videos/hero3.mp4" type="video/mp4" />
               </video>
@@ -242,9 +241,8 @@
         </div>
       </section>
 
-
       <!-- ====== WHY CHOOSE US ====== -->
-      <section class="section section-dark reveal">
+      <section class="section section-dark reveal mobile-hide-features">
         <div class="container">
           <h2 class="section-title">
             Tu único <span>vínculo real</span> con el asfalto.
@@ -254,21 +252,27 @@
           </p>
           <div class="features-grid">
             <div class="feature-card reveal" data-delay="0">
-              <div class="feature-icon">🛡️</div>
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
               <h3>Frenado Preciso</h3>
               <p>
                 Reduce metros vitales en situaciones de emergencia. Un buen amortiguador mantiene el contacto constante con el suelo.
               </p>
             </div>
             <div class="feature-card reveal" data-delay="100">
-              <div class="feature-icon">🔄</div>
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path><polyline points="22 4 22 10 16 10"></polyline></svg>
+              </div>
               <h3>Control en Curvas</h3>
               <p>
                 Mantén la trayectoria exacta sin balanceos peligrosos. Aseguramos la estabilidad lateral de tu vehículo.
               </p>
             </div>
             <div class="feature-card reveal" data-delay="200">
-              <div class="feature-icon">🚀</div>
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              </div>
               <h3>Estabilidad Total</h3>
               <p>
                 Protege tu inversión y a los tuyos. Evita el desgaste prematuro de neumáticos y piezas del tren delantero.
@@ -279,7 +283,7 @@
       </section>
 
       <!-- ====== DIFFERENTIATOR ====== -->
-      <section class="section section-no-top reveal">
+      <section class="section section-no-top reveal mobile-hide">
         <div class="container differentiator-banner">
             <h2>Te ofrecemos <span class="text-yellow">confianza, calidad y seguridad</span></h2>
             <p>En Auto Shock entendemos que tu vehículo es más que una máquina; es tu seguridad. Por eso, no nos limitamos a transacciones, entregamos una solución técnica respaldada por 25 años de especialización real.</p>
@@ -300,165 +304,93 @@
         </div>
       </section>
 
+      <!-- ====== VIDEO SEPARATOR (PROMO) ====== -->
+      <section class="video-promo-banner reveal mobile-only">
+        <div class="video-wrapper">
+          <video
+            class="hero-video-element"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto"
+          >
+            <source src="videos/hero3.mp4" type="video/mp4" />
+          </video>
+          <div class="video-overlay"></div>
+        </div>
+      </section>
+
       <!-- ====== PRODUCTOS PREVIEW ====== -->
       <section class="section section-card">
         <div class="container">
-          <h2 class="section-title reveal">Respaldo Global, <span>Seguridad Local</span></h2>
+          <h2 class="section-title reveal">
+            Nuestros <span>Productos</span>
+          </h2>
           <p class="section-subtitle reveal">
-            Seleccionamos solo fabricantes certificados que cumplen los estándares internacionales de seguridad. KYB, Monroe, Gabriel, Bilstein: no son solo logos, son garantías de control absoluto.
+            Soluciones automotrices de alta gama, seleccionadas para el máximo rendimiento y durabilidad.
           </p>
-          <div class="cards-grid">
-            <article class="card reveal" data-delay="0">
-              <div
-                style="
-                  height: 160px;
-                  overflow: hidden;
-                  border-radius: 8px;
-                  margin-bottom: 1.25rem;
-                "
-              >
-                <img
-                  src="images/productos/amortiguadores_gabriel.webp"
-                  alt="Amortiguadores para vehículos livianos"
-                  width="460"
-                  height="370"
-                  loading="lazy"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    transition: transform 0.3s;
-                  "
-                  onmouseover="this.style.transform = 'scale(1.06)'"
-                  onmouseout="this.style.transform = 'scale(1)'"
-                />
-              </div>
-              <h3
-                style="
-                  font-family: var(--font-headline);
-                  font-size: 1.1rem;
-                  color: var(--yellow);
-                  margin-bottom: 0.5rem;
-                "
-              >
-                Vehículos Livianos
-              </h3>
-              <p
-                style="
-                  color: var(--text-muted);
-                  font-size: 0.9rem;
-                  margin-bottom: 1.25rem;
-                "
-              >
-                Amortiguadores premium para autos particulares de las mejores
-                marcas del mercado.
-              </p>
-              <a
-                href="productos.html#livianos"
-                class="btn btn-outline"
-                style="width: 100%"
-                >Ver más</a
-              >
-            </article>
 
-            <article class="card reveal" data-delay="100">
-              <div
-                style="
-                  height: 160px;
-                  overflow: hidden;
-                  border-radius: 8px;
-                  margin-bottom: 1.25rem;
-                "
-              >
-                <img
-                  src="images/productos/amortiguador_daher.webp"
-                  alt="Amortiguadores de portalón Daher"
-                  width="500"
-                  height="500"
-                  loading="lazy"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    transition: transform 0.3s;
-                  "
-                  onmouseover="this.style.transform = 'scale(1.06)'"
-                  onmouseout="this.style.transform = 'scale(1)'"
-                />
-              </div>
-              <h3
-                style="
-                  font-family: var(--font-headline);
-                  font-size: 1.1rem;
-                  color: var(--yellow);
-                  margin-bottom: 0.5rem;
-                "
-              >
-                Portalones Daher
-              </h3>
-              <p
-                style="
-                  color: var(--text-muted);
-                  font-size: 0.9rem;
-                  margin-bottom: 1.25rem;
-                "
-              >
-                Amortiguadores de maletero y portalón de la reconocida marca
-                Daher.
-              </p>
-              <a
-                href="productos.html#portalon"
-                class="btn btn-outline"
-                style="width: 100%"
-                >Ver más</a
-              >
-            </article>
+          <!-- CATEGORÍA: Amortiguadores -->
+          <div class="category-section reveal" data-delay="0" style="margin-bottom: 3rem;">
+            <h3 style="font-family: var(--font-headline); font-size: 1.5rem; color: var(--yellow); text-transform: uppercase; margin-bottom: 1.5rem; border-bottom: 2px solid rgba(255,215,0,0.2); padding-bottom: 0.5rem;"><span style="margin-right: 0.5rem;">🔧</span> Amortiguadores</h3>
+            <div class="cards-grid">
+              
+              <!-- Livianos -->
+              <article class="card">
+                <div style="height: 160px; overflow: hidden; border-radius: 8px; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; background: #000;">
+                  <img src="images/productos/amortiguador_kyb.webp" alt="Amortiguadores para Vehículos Livianos" loading="lazy" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s;" onmouseover="this.style.transform = 'scale(1.06)'" onmouseout="this.style.transform = 'scale(1)'">
+                </div>
+                <h4 style="font-family: var(--font-headline); font-size: 1.1rem; color: #f0f0f0; margin-bottom: 0.5rem;">Para Vehículos Livianos</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">KYB, Monroe, Gabriel, Bilstein y más.</p>
+                <a href="productos.html#livianos" class="btn btn-outline" style="width: 100%">Ver productos</a>
+              </article>
 
-            <article class="card reveal" data-delay="200">
-              <div
-                style="
-                  height: 160px;
-                  overflow: hidden;
-                  border-radius: 8px;
-                  margin-bottom: 1.25rem;
-                "
-              >
-                <img
-                  src="images/productos_tren_delantero/espirales.webp"
-                  alt="Tren delantero - Espirales"
-                  width="483"
-                  height="500"
-                  loading="lazy"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    padding: 0.85rem;
-                    transition: transform 0.3s;
-                  "
-                  onmouseover="this.style.transform = 'scale(1.06)'"
-                  onmouseout="this.style.transform = 'scale(1)'"
-                />
-              </div>
-              <h3
-                style="
-                  font-family: var(--font-headline);
-                  font-size: 1.1rem;
-                  color: var(--yellow);
-                  margin-bottom: 0.5rem;
-                "
-              >
-                Tren Delantero
-              </h3>
-              <p
-                style="
-                  color: var(--text-muted);
-                  font-size: 0.9rem;
-                  margin-bottom: 1.25rem;
-                "
-              >
-                Axiales, bandejas, bieletas, cazoletas, espirales, rótulas y
-                terminales.
+              <!-- Portalón -->
+              <article class="card">
+                <div style="height: 160px; overflow: hidden; border-radius: 8px; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; background: #000;">
+                  <img src="images/productos/amortiguador_daher.webp" alt="Amortiguadores de Portalón" loading="lazy" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s;" onmouseover="this.style.transform = 'scale(1.06)'" onmouseout="this.style.transform = 'scale(1)'">
+                </div>
+                <h4 style="font-family: var(--font-headline); font-size: 1.1rem; color: #f0f0f0; margin-bottom: 0.5rem;">De Portalón</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Marca Daher. Suavidad y durabilidad.</p>
+                <a href="productos.html#portalon" class="btn btn-outline" style="width: 100%">Ver productos</a>
+              </article>
+
+              <!-- Camiones -->
+              <article class="card">
+                <div style="height: 160px; overflow: hidden; border-radius: 8px; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; background: #000;">
+                  <img src="images/productos/amortiguadores_camion_index.webp" alt="Amortiguadores para Camiones" loading="lazy" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s;" onmouseover="this.style.transform = 'scale(1.06)'" onmouseout="this.style.transform = 'scale(1)'">
+                </div>
+                <h4 style="font-family: var(--font-headline); font-size: 1.1rem; color: #f0f0f0; margin-bottom: 0.5rem;">Para Camiones y Buses</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Alta resistencia para carga pesada.</p>
+                <a href="productos.html#camiones" class="btn btn-outline" style="width: 100%">Ver productos</a>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- CATEGORÍA: Componentes Especializados -->
+          <div class="category-section reveal" data-delay="100">
+            <h3 style="font-family: var(--font-headline); font-size: 1.5rem; color: var(--yellow); text-transform: uppercase; margin-bottom: 1.5rem; border-bottom: 2px solid rgba(255,215,0,0.2); padding-bottom: 0.5rem;"><span style="margin-right: 0.5rem;">⚙️</span> Componentes Especializados</h3>
+            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 400px)); justify-content: center;">
+              
+              <!-- Catalíticos -->
+              <article class="card">
+                <div style="height: 160px; overflow: hidden; border-radius: 8px; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; background: #000;">
+                  <img src="images/productos/catalitico_inde.webp" alt="Catalíticos automotrices" loading="lazy" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s;" onmouseover="this.style.transform = 'scale(1.06)'" onmouseout="this.style.transform = 'scale(1)'">
+                </div>
+                <h4 style="font-family: var(--font-headline); font-size: 1.1rem; color: var(--yellow); margin-bottom: 0.5rem;">Catalíticos</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Convertidores catalíticos para reducir emisiones.</p>
+                <a href="productos.html#cataliticos" class="btn btn-outline" style="width: 100%">Ver productos</a>
+              </article>
+
+              <!-- Tren Delantero -->
+              <article class="card">
+                <div style="height: 160px; overflow: hidden; border-radius: 8px; margin-bottom: 1.25rem; background: #000; display: flex; align-items: center; justify-content: center;">
+                  <img src="images/productos_tren_delantero/terminales.webp" alt="Tren delantero" loading="lazy" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; padding: 0.85rem; transition: transform 0.3s;" onmouseover="this.style.transform = 'scale(1.06)'" onmouseout="this.style.transform = 'scale(1)'">
+                </div>
+                <h4 style="font-family: var(--font-headline); font-size: 1.1rem; color: var(--yellow); margin-bottom: 0.5rem;">Tren Delantero</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Axiales, bandejas, bieletas, cazoletas, espirales, rótulas y terminales.</p>
               </p>
               <a
                 href="productos.html#tren-delantero"
@@ -485,44 +417,50 @@
           <p class="section-subtitle text-center">La seguridad es nuestra prioridad, y nuestros clientes lo confirman.</p>
           <div class="contact-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
             
-            <div class="contact-card" style="padding: 2rem;">
-              <div style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
+            <div class="contact-card testimonial-item-premium" style="padding: 2rem;">
+              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
                 <!-- 5 stars -->
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
-              <p style="font-style: italic; margin-bottom: 1.5rem;">"Excelente atención y asesoría técnica. Me explicaron por qué mi auto rebotaba en las curvas y me recomendaron los amortiguadores precisos. Ahora siento mi vehículo como nuevo, muy seguro."</p>
-              <h4 style="color: #fff;">Carlos M.</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">Toyota Hilux</p>
+              <p style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-primary);">"Excelente atención y asesoría técnica. Me explicaron por qué mi auto rebotaba en las curvas y me recomendaron los amortiguadores precisos. Ahora siento mi vehículo como nuevo, muy seguro."</p>
+              <div class="testimonial-author">
+                <h4 style="color: #fff; margin-bottom: 0.2rem;">Carlos M.</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Toyota Hilux</p>
+              </div>
             </div>
 
-            <div class="contact-card" style="padding: 2rem;">
-              <div style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <div class="contact-card testimonial-item-premium" style="padding: 2rem;">
+              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
-              <p style="font-style: italic; margin-bottom: 1.5rem;">"Había cotizado en varios lados, pero solo aquí en Auto Shock me dieron la confianza técnica que buscaba. No te venden lo más caro, te venden lo que tu auto realmente requiere por seguridad."</p>
-              <h4 style="color: #fff;">Andrea Valdés</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">Kia Sportage</p>
+              <p style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-primary);">"Había cotizado en varios lados, pero solo aquí en Auto Shock me dieron la confianza técnica que buscaba. No te venden lo más caro, te venden lo que tu auto realmente requiere por seguridad."</p>
+              <div class="testimonial-author">
+                <h4 style="color: #fff; margin-bottom: 0.2rem;">Andrea Valdés</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Kia Sportage</p>
+              </div>
             </div>
 
-            <div class="contact-card" style="padding: 2rem;">
-              <div style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <div class="contact-card testimonial-item-premium" style="padding: 2rem;">
+              <div class="testimonial-stars" style="display: flex; gap: 0.5rem; color: var(--yellow); margin-bottom: 1rem;">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
-              <p style="font-style: italic; margin-bottom: 1.5rem;">"Fui por un ruido en el tren delantero, lo diagnosticaron al instante y en el mismo día me entregaron el repuesto exacto: KYB originales. Destaco la agilidad y el trato humano impecable."</p>
-              <h4 style="color: #fff;">Tomás R.</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">Chevrolet Spark</p>
+              <p style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-primary);">"Fui por un ruido en el tren delantero, lo diagnosticaron al instante y en el mismo día me entregaron el repuesto exacto: KYB originales. Destaco la agilidad y el trato humano impecable."</p>
+              <div class="testimonial-author">
+                <h4 style="color: #fff; margin-bottom: 0.2rem;">Tomás R.</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Chevrolet Spark</p>
+              </div>
             </div>
 
           </div>
@@ -858,6 +796,7 @@
       <button class="wa-float-btn" id="wa-float-btn" aria-label="Abrir chat de WhatsApp">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </button>
+    </div>
 
     <!-- Scroll to Top -->
     <button id="scroll-top" aria-label="Volver arriba">

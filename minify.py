@@ -12,6 +12,9 @@ def minify_css(file_in, file_out):
 minify_css('css/ux_enhancements.css', 'css/ux_enhancements.min.css')
 print("Successfully minified css/ux_enhancements.css")
 
+minify_css('css/style.css', 'css/style.min.css')
+print("Successfully minified css/style.css")
+
 def minify_js(file_in, file_out):
     with open(file_in, 'r', encoding='utf-8') as f:
         content = f.read()
