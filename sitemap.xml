@@ -7,25 +7,25 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://autoshock.cl/productos.html</loc>
+    <loc>https://autoshock.cl/productos</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://autoshock.cl/marcas.html</loc>
+    <loc>https://autoshock.cl/marcas</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://autoshock.cl/nosotros.html</loc>
+    <loc>https://autoshock.cl/nosotros</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://autoshock.cl/contacto.html</loc>
+    <loc>https://autoshock.cl/contacto</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

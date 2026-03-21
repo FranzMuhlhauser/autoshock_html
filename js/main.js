@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initProductTabs();
   initWhatsAppChatbot();
   initAccordion();
-  
+  initEmailObfuscation(); // Anti-spam email obfuscation
+
   // Register Service Worker for offline PWA capabilities
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -390,7 +391,9 @@ function handleFormSubmit(form) {
 
   const formData = new FormData(form);
 
-  fetch("https://formsubmit.co/ajax/auto_shock@hotmail.com", {
+  const emailParts = ['auto_shock', 'hotmail', 'com'];
+  const email = `${emailParts[0]}@${emailParts[1]}.${emailParts[2]}`;
+  fetch(`https://formsubmit.co/ajax/${email}`, {
     method: "POST",
     body: formData
   })
@@ -506,5 +509,36 @@ function initAccordion() {
         }
       }
     });
+  });
+}
+
+/* ------------------------------------------------
+   9. Email Obfuscation (Anti-Spam)
+   ------------------------------------------------ */
+function initEmailObfuscation() {
+  // Obfuscated email parts (split to avoid harvesting)
+  const emailParts = {
+    user: ['auto_shock', 'hotmail', 'com'],
+    separator: { at: '@', dot: '.' }
+  };
+
+  // Reconstruct email
+  const email = emailParts.user[0] + emailParts.separator.at + emailParts.user[1] + emailParts.separator.dot + emailParts.user[2];
+
+  // Update all email links
+  const emailLinks = document.querySelectorAll('.email-link, a[href^="mailto:"]');
+  emailLinks.forEach(link => {
+    if (link.href.startsWith('mailto:')) {
+      link.href = 'mailto:' + email;
+    }
+    if (link.textContent.includes('@') || link.classList.contains('email-link')) {
+      link.textContent = email;
+    }
+  });
+
+  // Update email text spans
+  const emailSpans = document.querySelectorAll('.email-text');
+  emailSpans.forEach(span => {
+    span.textContent = email;
   });
 }
