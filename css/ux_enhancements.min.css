@@ -1053,20 +1053,7 @@
         height: 40px !important;
     }
 
-    /* Camiones Brands Layout */
-    #camiones .product-brand-logos-featured {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 1.5rem !important;
-        align-items: center;
-        justify-items: center;
-        margin-bottom: 1.5rem;
-    }
-    #camiones .logo-eurotech { grid-row: 1; grid-column: 1; height: 60px !important; width: auto; max-width: 100%; }
-    #camiones .logo-gabriel { grid-row: 1; grid-column: 2; height: 75px !important; width: auto; max-width: 100%; }
-    #camiones .logo-sachs { grid-row: 2; grid-column: 1; height: 50px !important; width: auto; max-width: 100%; }
-    #camiones .logo-monroe { grid-row: 2; grid-column: 2; height: 25px !important; width: auto; max-width: 100%; }
-    #camiones .logo-prt { grid-row: 3; grid-column: span 2; height: 35px !important; width: auto; max-width: 100%; }
+    /* Los logos de camiones ahora heredan el tamaño flex unificado de .product-brand-logos-featured */
     
     /* === Accessibility: Minimum Font Size (WCAG AA - 14px minimum) === */
     /* NOTE: 'span' excluido intencionalmente — los <span> dentro de h1/h2 deben heredar el tamaño del heading */
