@@ -35,7 +35,7 @@ function initWhatsAppChatbot() {
 
   const floatBtn = document.getElementById("wa-float-btn");
   const drawer = document.getElementById("wa-drawer");
-  
+
   // Steps
   const steps = {
     1: document.getElementById("wa-step-1"),
@@ -58,7 +58,7 @@ function initWhatsAppChatbot() {
   const btnSendFinal = document.getElementById("wa-send-final");
 
   const displayName = document.getElementById("wa-display-name");
-  
+
   let chatData = {
     name: "",
     product: "",
@@ -66,7 +66,7 @@ function initWhatsAppChatbot() {
     modelo: "",
     ano: ""
   };
-  
+
   let stepHistory = [];
 
   // Typing indicator element
@@ -81,10 +81,10 @@ function initWhatsAppChatbot() {
     if (pushToHistory && currentActive) {
       stepHistory.push(currentActive);
     }
-    
+
     // Hide all steps
     Object.values(steps).forEach(s => s && s.classList.add("wa-hidden"));
-    
+
     // Show typing effect if it's not the first step
     if (stepKey !== 1 && typingIndicator) {
       typingIndicator.classList.remove("wa-hidden");
@@ -123,17 +123,17 @@ function initWhatsAppChatbot() {
   if (floatBtn) {
     // Accessibility: Set initial state
     floatBtn.setAttribute("aria-expanded", "false");
-    
+
     floatBtn.addEventListener("click", () => {
       const isActive = drawer.classList.toggle("active");
       floatBtn.setAttribute("aria-expanded", isActive ? "true" : "false");
-      
+
       if (!isActive) {
         setTimeout(resetChat, 300); // Reset after close animation
       } else {
         // Focus first element if opened
         setTimeout(() => {
-          if(!steps[1].classList.contains("wa-hidden")) userNameInput.focus();
+          if (!steps[1].classList.contains("wa-hidden")) userNameInput.focus();
         }, 100);
       }
     });
@@ -165,7 +165,7 @@ function initWhatsAppChatbot() {
 
     chatData.product = optBtn.dataset.product;
     const next = optBtn.dataset.next;
-    
+
     if (next === "step-tren") {
       showStep("tren");
     } else {
@@ -237,14 +237,61 @@ function initMobileMenu() {
   toggle.setAttribute("aria-expanded", "false");
   mobileMenu.setAttribute("aria-hidden", "true");
 
+  // Store the element that opened the menu for focus restoration
+  let previouslyFocused = null;
+
+  // Focusable elements inside the menu
+  const getFocusableElements = () => {
+    const focusable = mobileMenu.querySelectorAll('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    return Array.from(focusable);
+  };
+
+  // Focus trap: cycle focus within menu when Tab is pressed
+  mobileMenu.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab" || !mobileMenu.classList.contains("open")) return;
+
+    const focusableElements = getFocusableElements();
+    if (focusableElements.length === 0) return;
+
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    if (e.shiftKey) {
+      // Shift+Tab: if on first element, wrap to last
+      if (document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      }
+    } else {
+      // Tab: if on last element, wrap to first
+      if (document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+  });
+
   toggle.addEventListener("click", () => {
     const isOpen = mobileMenu.classList.toggle("open");
     toggle.classList.toggle("open", isOpen);
     document.body.style.overflow = isOpen ? "hidden" : "";
-    
+
     // Update ARIA
     toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     mobileMenu.setAttribute("aria-hidden", !isOpen ? "true" : "false");
+
+    if (isOpen) {
+      // Store what was focused before opening
+      previouslyFocused = document.activeElement;
+      // Focus first link in menu
+      const firstLink = mobileMenu.querySelector("a[href]");
+      if (firstLink) setTimeout(() => firstLink.focus(), 50);
+    } else {
+      // Restore focus to what opened the menu
+      if (previouslyFocused && previouslyFocused.focus) {
+        previouslyFocused.focus();
+      }
+    }
   });
 
   // Close on link click
@@ -253,15 +300,18 @@ function initMobileMenu() {
       mobileMenu.classList.remove("open");
       toggle.classList.remove("open");
       document.body.style.overflow = "";
+      // Restore focus
+      toggle.focus();
     });
   });
 
   // Close on Escape key
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
+    if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
       mobileMenu.classList.remove("open");
       toggle.classList.remove("open");
       document.body.style.overflow = "";
+      toggle.focus();
     }
   });
 
@@ -271,6 +321,7 @@ function initMobileMenu() {
       mobileMenu.classList.remove("open");
       toggle.classList.remove("open");
       document.body.style.overflow = "";
+      toggle.focus();
     }
   });
 }
@@ -397,23 +448,23 @@ function handleFormSubmit(form) {
     method: "POST",
     body: formData
   })
-  .then(response => response.json())
-  .then(data => {
-    btn.disabled = false;
-    btn.textContent = originalText;
-    form.reset();
+    .then(response => response.json())
+    .then(data => {
+      btn.disabled = false;
+      btn.textContent = originalText;
+      form.reset();
 
-    if (successEl) {
-      successEl.textContent = "✅ ¡Mensaje enviado con éxito! Te contactaremos a la brevedad.";
-      successEl.classList.add("visible");
-    }
-  })
-  .catch(error => {
-    btn.disabled = false;
-    btn.textContent = originalText;
-    alert("Hubo un error al enviar el mensaje. Por favor intenta nuevamente.");
-    console.error("Error:", error);
-  });
+      if (successEl) {
+        successEl.textContent = "✅ ¡Mensaje enviado con éxito! Te contactaremos a la brevedad.";
+        successEl.classList.add("visible");
+      }
+    })
+    .catch(error => {
+      btn.disabled = false;
+      btn.textContent = originalText;
+      alert("Hubo un error al enviar el mensaje. Por favor intenta nuevamente.");
+      console.error("Error:", error);
+    });
 }
 
 /* ------------------------------------------------

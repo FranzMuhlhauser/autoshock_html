@@ -1,138 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página no encontrada | Auto Shock</title>
-    <meta name="description" content="La página que buscas no existe. Vuelve al inicio de Auto Shock y encuentra amortiguadores y repuestos en Viña del Mar." />
-    
-    <!-- === Content Security Policy (CSP) === -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
 
-    <!-- === Fuentes === -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
-      />
-    </noscript>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página no encontrada | Auto Shock</title>
+  <meta name="description"
+    content="La página que buscas no existe. Vuelve al inicio de Auto Shock y encuentra amortiguadores y repuestos en Viña del Mar." />
 
-    <link rel="stylesheet" href="css/style.css?v=7.0" />
-    <link rel="stylesheet" href="css/ux_enhancements.css?v=7.0" />
-    
-    <style>
-      .error-page {
-        min-height: 100vh;
-        display: flex;
+  <!-- === Content Security Policy (CSP) === -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+
+  <!-- === Fuentes === -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap" />
+  </noscript>
+
+  <link rel="stylesheet" href="css/style.min.css?v=7.0" />
+  <link rel="stylesheet" href="css/ux_enhancements.min.css?v=7.0" />
+
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-primary);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .error-code {
+      font-family: var(--font-headline);
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
+    }
+
+    .error-title {
+      font-family: var(--font-headline);
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .error-message {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .error-illustration {
+      margin: 2rem 0;
+      opacity: 0.8;
+    }
+
+    .error-illustration svg {
+      width: clamp(120px, 30vw, 200px);
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .error-actions {
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        background: var(--bg-primary);
-        padding: 2rem;
-        text-align: center;
       }
-      .error-code {
-        font-family: var(--font-headline);
-        font-size: clamp(6rem, 20vw, 12rem);
-        font-weight: 900;
-        color: var(--yellow);
-        line-height: 1;
-        margin-bottom: 1rem;
-        text-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
+
+      .error-actions .btn {
+        width: 100%;
+        max-width: 280px;
       }
-      .error-title {
-        font-family: var(--font-headline);
-        font-size: clamp(1.5rem, 5vw, 2.5rem);
-        font-weight: 800;
-        color: var(--text-primary);
-        margin-bottom: 1rem;
-      }
-      .error-message {
-        font-size: clamp(1rem, 3vw, 1.2rem);
-        color: var(--text-muted);
-        max-width: 500px;
-        margin-bottom: 2.5rem;
-        line-height: 1.6;
-      }
-      .error-actions {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .error-illustration {
-        margin: 2rem 0;
-        opacity: 0.8;
-      }
-      .error-illustration svg {
-        width: clamp(120px, 30vw, 200px);
-        height: auto;
-      }
-      @media (max-width: 768px) {
-        .error-actions {
-          flex-direction: column;
-          align-items: center;
-        }
-        .error-actions .btn {
-          width: 100%;
-          max-width: 280px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="error-page">
-      <div class="error-illustration" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Shock absorber illustration -->
-          <rect x="85" y="20" width="30" height="160" rx="8" fill="#1a1a1a" stroke="#ffd700" stroke-width="3"/>
-          <rect x="75" y="40" width="50" height="12" rx="4" fill="#ffd700"/>
-          <rect x="75" y="148" width="50" height="12" rx="4" fill="#ffd700"/>
-          <circle cx="100" cy="80" r="15" fill="#1a1a1a" stroke="#ffd700" stroke-width="2"/>
-          <path d="M100 50 L100 70" stroke="#ffd700" stroke-width="3" stroke-linecap="round"/>
-          <path d="M100 130 L100 150" stroke="#ffd700" stroke-width="3" stroke-linecap="round"/>
-          <!-- Warning triangle -->
-          <path d="M150 30 L170 70 L130 70 Z" fill="#ffd700" opacity="0.3"/>
-          <path d="M150 45 L150 55 M150 60 L150 62" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/>
+    }
+  </style>
+</head>
+
+<body>
+  <main class="error-page">
+    <div class="error-illustration" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Shock absorber illustration -->
+        <rect x="85" y="20" width="30" height="160" rx="8" fill="#1a1a1a" stroke="#ffd700" stroke-width="3" />
+        <rect x="75" y="40" width="50" height="12" rx="4" fill="#ffd700" />
+        <rect x="75" y="148" width="50" height="12" rx="4" fill="#ffd700" />
+        <circle cx="100" cy="80" r="15" fill="#1a1a1a" stroke="#ffd700" stroke-width="2" />
+        <path d="M100 50 L100 70" stroke="#ffd700" stroke-width="3" stroke-linecap="round" />
+        <path d="M100 130 L100 150" stroke="#ffd700" stroke-width="3" stroke-linecap="round" />
+        <!-- Warning triangle -->
+        <path d="M150 30 L170 70 L130 70 Z" fill="#ffd700" opacity="0.3" />
+        <path d="M150 45 L150 55 M150 60 L150 62" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <h1 class="error-code">404</h1>
+    <h2 class="error-title">Página no encontrada</h2>
+    <p class="error-message">
+      Lo sentimos, la página que buscas no existe o ha sido movida.
+      Tal como un amortiguador en mal estado, este enlace perdió su camino.
+    </p>
+
+    <div class="error-actions">
+      <a href="/" class="btn btn-primary btn-lg">
+        <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
         </svg>
-      </div>
-      
-      <h1 class="error-code">404</h1>
-      <h2 class="error-title">Página no encontrada</h2>
-      <p class="error-message">
-        Lo sentimos, la página que buscas no existe o ha sido movida. 
-        Tal como un amortiguador en mal estado, este enlace perdió su camino.
-      </p>
-      
-      <div class="error-actions">
-        <a href="/" class="btn btn-primary btn-lg">
-          <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-          Volver al Inicio
-        </a>
-        <a href="productos" class="btn btn-outline btn-lg">
-          <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-          Ver Productos
-        </a>
-        <a href="contacto" class="btn btn-ghost btn-lg">
-          <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Contactar
-        </a>
-      </div>
-    </main>
-    
-    <script>
-      // Redirect after 30 seconds
-      setTimeout(function() {
-        window.location.href = '/';
-      }, 30000);
-    </script>
-  </body>
+        Volver al Inicio
+      </a>
+      <a href="productos" class="btn btn-outline btn-lg">
+        <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24">
+          <path
+            d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
+        </svg>
+        Ver Productos
+      </a>
+      <a href="contacto" class="btn btn-ghost btn-lg">
+        <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24">
+          <path
+            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+        Contactar
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // Redirect after 30 seconds
+    setTimeout(function () {
+      window.location.href = '/';
+    }, 30000);
+  </script>
+</body>
+
 </html>
