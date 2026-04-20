@@ -471,8 +471,9 @@
         display: block !important;
     }
 
-    /* Sub-menu logic: Only show content with this class on mobile */
-    .showcase-content.active-mobile-show {
+    /* Sub-menu logic: Only show content with this class on mobile
+       MUST use full chain to beat specificity of the hide-all rule above (0,2,1) */
+    .mobile-group-wrapper.active-group .showcase-content.active-mobile-show {
         display: block !important;
     }
 

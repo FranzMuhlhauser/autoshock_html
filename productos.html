@@ -234,7 +234,7 @@
 
         <!-- Mobile Links (Index Style Buttons) -->
         <div class="mobile-nav-buttons mobile-only" id="mobile-category-buttons">
-          <button class="btn btn-primary btn-full mb-1 mobile-category-btn" data-target="mg-amortiguadores">🔧
+          <button class="btn btn-outline btn-full mb-1 mobile-category-btn" data-target="mg-amortiguadores">🔧
             Amortiguadores</button>
           <button class="btn btn-outline btn-full mb-1 mobile-category-btn" data-target="mg-cataliticos">♻️
             Catalíticos</button>
@@ -243,7 +243,7 @@
         </div>
 
         <!-- GROUP 1: Amortiguadores -->
-        <div class="mobile-group-wrapper active-group" id="mg-amortiguadores">
+        <div class="mobile-group-wrapper" id="mg-amortiguadores">
           <h3 class="mobile-category-header mobile-only" style="margin-top: 1rem;"><span>🔧</span> Amortiguadores</h3>
 
           <!-- Sub-menu for Mobile Amortiguadores -->
@@ -572,6 +572,20 @@
         const subCatBtns = document.querySelectorAll('.sub-cat-btn');
         const backBtn = document.getElementById('back-to-categories');
         const amSubmenu = document.getElementById('amortiguadores-submenu');
+        const isMobile = () => window.innerWidth <= 768;
+
+        // Detectar si estamos en mobile y resetear el estado inicial
+        function initMobileState() {
+          if (isMobile()) {
+            // Asegurar que ningún grupo esté activo al inicio
+            mobileGroups.forEach(g => g.classList.remove('active-group'));
+            // Asegurar que el submenu esté oculto al inicio
+            if (amSubmenu) amSubmenu.classList.remove('hide'); // Visible por defecto (se muestra cuando el grupo está activo)
+            if (backBtn) backBtn.classList.add('hide');
+            // Resetear contenidos de amortiguadores
+            resetAmortiguadoresContent();
+          }
+        }
 
         // Function to reset all amortiguadores content visibility on mobile
         function resetAmortiguadoresContent() {
@@ -580,38 +594,58 @@
             const contents = amGroup.querySelectorAll('.showcase-content');
             contents.forEach(c => c.classList.remove('active-mobile-show'));
           }
+          // También resetear active en sub-cat buttons
+          subCatBtns.forEach(b => {
+            b.classList.remove('btn-primary');
+            b.classList.add('btn-outline');
+          });
         }
+
+        // Inicializar estado mobile
+        initMobileState();
 
         if (mobileBtns.length > 0) {
           mobileBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
               e.preventDefault();
               const targetId = btn.getAttribute('data-target');
+              const isAlreadyActive = document.getElementById(targetId)?.classList.contains('active-group');
 
               // Update category buttons UI
               mobileBtns.forEach(b => {
                 b.classList.remove('btn-primary');
                 b.classList.add('btn-outline');
               });
+
+              // Si el grupo ya estaba activo, toggle: lo cerramos
+              if (isAlreadyActive) {
+                mobileGroups.forEach(g => g.classList.remove('active-group'));
+                return;
+              }
+
               btn.classList.remove('btn-outline');
               btn.classList.add('btn-primary');
 
               // Hide all groups
-              mobileGroups.forEach(g => {
-                g.classList.remove('active-group');
-              });
+              mobileGroups.forEach(g => g.classList.remove('active-group'));
 
               // Show targeted group
               const target = document.getElementById(targetId);
               if (target) {
                 target.classList.add('active-group');
-                
-                // Special logic for Amortiguadores
+
+                // Special logic for Amortiguadores: Always show sub-menu, never raw products
                 if (targetId === 'mg-amortiguadores') {
                   resetAmortiguadoresContent();
                   if (amSubmenu) amSubmenu.classList.remove('hide');
                   if (backBtn) backBtn.classList.add('hide');
                 }
+              }
+
+              // Scroll suave hacia los botones de categoría
+              const catButtons = document.getElementById('mobile-category-buttons');
+              if (catButtons) {
+                window.scrollTo({ top: catButtons.offsetTop - 80, behavior: 'smooth' });
               }
             });
           });
@@ -621,22 +655,37 @@
         subCatBtns.forEach(btn => {
           btn.addEventListener('click', () => {
             const subTarget = btn.getAttribute('data-sub');
-            
+
+            // Highlight active sub-cat button
+            subCatBtns.forEach(b => {
+              b.classList.remove('btn-primary');
+              b.classList.add('btn-outline');
+            });
+            btn.classList.remove('btn-outline');
+            btn.classList.add('btn-primary');
+
             // Hide sub-menu
             if (amSubmenu) amSubmenu.classList.add('hide');
-            
+
             // Show content
-            resetAmortiguadoresContent();
+            resetAmortiguadoresContent(); // Borra clases de otra sub-cat si había una
             const content = document.getElementById(subTarget);
             if (content) {
               content.classList.add('active-mobile-show');
             }
-            
+
+            // Re-highlight the selected sub-cat (resetAmortiguadoresContent la removió)
+            btn.classList.remove('btn-outline');
+            btn.classList.add('btn-primary');
+
             // Show back button
             if (backBtn) backBtn.classList.remove('hide');
 
             // Scroll to top of category for better context
-            window.scrollTo({ top: document.getElementById('mg-amortiguadores').offsetTop - 100, behavior: 'smooth' });
+            const amGroup = document.getElementById('mg-amortiguadores');
+            if (amGroup) {
+              window.scrollTo({ top: amGroup.offsetTop - 100, behavior: 'smooth' });
+            }
           });
         });
 
@@ -646,8 +695,20 @@
             resetAmortiguadoresContent();
             if (amSubmenu) amSubmenu.classList.remove('hide');
             backBtn.classList.add('hide');
+            // Scroll back to category buttons
+            const catButtons = document.getElementById('mobile-category-buttons');
+            if (catButtons) {
+              window.scrollTo({ top: catButtons.offsetTop - 80, behavior: 'smooth' });
+            }
           });
         }
+
+        // Re-init si cambia el tamaño de pantalla (ej: rotar dispositivo)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(initMobileState, 150);
+        });
       });
     </script>
 
