@@ -2,27 +2,25 @@
 <html lang="es">
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TL5WFJD9');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- === Seguimiento y Analítica (GA4, GSC) === -->
-  <!-- TODO: Reemplazar G-XXXXXXXXXX con tu Measurement ID real de GA4 -->
-  <!-- Google tag (gtag.js) -->
-  <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    -->
-  <!-- TODO: Agregar aquí la etiqueta de verificación de Google Search Console -->
-  <!-- <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION" /> -->
   <title>Amortiguadores en Viña del Mar – Auto Shock | Especialistas en Seguridad</title>
   <meta name="description"
     content="Auto Shock ofrece amortiguadores, trenes delanteros y repuestos automotrices de alta calidad. Más de 25 años de experiencia en Viña del Mar, Chile." />
-  <link rel="canonical" href="https://autoshock.cl/" />
+  <link rel="canonical" href="https://amortiguadoresautoshock.cl/" />
 
   <!-- === Content Security Policy (CSP) === -->
   <meta http-equiv="Content-Security-Policy"
@@ -37,19 +35,19 @@
   <meta property="og:title" content="Auto Shock | Especialistas en Amortiguadores y Seguridad en Viña del Mar" />
   <meta property="og:description"
     content="Expertos con más de 25 años en amortiguadores, tren delantero y repuestos en Viña del Mar. Calidad garantizada para tu seguridad." />
-  <meta property="og:url" content="https://autoshock.cl/" />
-  <meta property="og:image" content="https://autoshock.cl/images/logo_auto_shock.webp" />
+  <meta property="og:url" content="https://amortiguadoresautoshock.cl/" />
+  <meta property="og:image" content="https://amortiguadoresautoshock.cl/images/logo_auto_shock.webp" />
   <meta property="og:image:alt" content="Logo de Auto Shock - Amortiguadores en Viña del Mar" />
   <meta property="og:site_name" content="Auto Shock" />
   <meta property="og:locale" content="es_CL" />
 
   <!-- === Redes Sociales: Twitter Cards === -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@autoshock_cl" />
+  <meta name="twitter:site" content="@amortiguadoresautoshock.cl" />
   <meta name="twitter:title" content="Auto Shock | Amortiguadores en Viña del Mar" />
   <meta name="twitter:description"
     content="Especialistas en seguridad automotriz. Amortiguadores, tren delantero y más en Viña del Mar." />
-  <meta name="twitter:image" content="https://autoshock.cl/images/logo_auto_shock.webp" />
+  <meta name="twitter:image" content="https://amortiguadoresautoshock.cl/images/logo_auto_shock.webp" />
 
   <!-- === Rendimiento: Preconexiones === -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,18 +58,21 @@
   <!-- === Fuentes: Carga sin bloquear render === -->
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
-    as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    as="style" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap"
+    media="print" onload="this.media='all'" />
   <noscript>
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap" />
   </noscript>
 
   <!-- === Preload imagen hero (crítica, above the fold) === -->
-  <link rel="preload" href="images/logo_auto_shock.webp" as="image" />
+  <link rel="preload" href="images/logo_auto_shock.webp" as="image" fetchpriority="high" />
 
-  <!-- Estilos locales y mejoras UX -->
-  <link rel="stylesheet" href="css/style.min.css?v=7.0" />
-  <link rel="stylesheet" href="css/ux_enhancements.min.css?v=7.0" />
+  <!-- Estilos locales minificados -->
+  <link rel="stylesheet" href="css/style.min.css?v=8.0" media="all" />
+  <link rel="stylesheet" href="css/ux_enhancements.min.css?v=8.0" media="print" onload="this.media='all'" />
 
   <!-- === Datos Estructurados: SEO Local === -->
   <script type="application/ld+json">
@@ -79,9 +80,9 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Auto Shock",
-      "@id": "https://autoshock.cl/#localbusiness",
-      "image": "https://autoshock.cl/images/logo_auto_shock.webp",
-      "url": "https://autoshock.cl",
+      "@id": "https://amortiguadoresautoshock.cl/#localbusiness",
+      "image": "https://amortiguadoresautoshock.cl/images/logo_auto_shock.webp",
+      "url": "https://amortiguadoresautoshock.cl",
       "telephone": "+56986908605",
       "address": {
         "@type": "PostalAddress",
@@ -126,7 +127,7 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "@id": "https://autoshock.cl/#faq",
+      "@id": "https://amortiguadoresautoshock.cl/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -192,9 +193,9 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": "https://autoshock.cl/#webpage",
+      "@id": "https://amortiguadoresautoshock.cl/#webpage",
       "name": "Auto Shock – Amortiguadores y Seguridad",
-      "url": "https://autoshock.cl/",
+      "url": "https://amortiguadoresautoshock.cl/",
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [
@@ -213,7 +214,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Auto Shock",
-      "url": "https://autoshock.cl",
+      "url": "https://amortiguadoresautoshock.cl",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5",
@@ -249,6 +250,10 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL5WFJD9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- === Accesibilidad: Skip to Content === -->
   <a href="#main-content" class="skip-to-content">Saltar al contenido principal</a>
 
@@ -258,7 +263,7 @@
       <a href="/" class="nav-logo" aria-label="Auto Shock - Inicio">
         <img src="images/logo_auto_shock.webp"
           srcset="images/logo_auto_shock.webp 1x, images/logo_auto_shock@2x.webp 2x" alt="Logo Auto Shock" width="180"
-          height="120" loading="eager" />
+          height="120" fetchpriority="high" />
       </a>
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="/" class="active">Inicio</a>
@@ -308,7 +313,7 @@
         <div class="hero-media">
           <div class="video-wrapper">
             <video id="hero-video-desktop" class="hero-video-element" autoplay loop muted playsinline preload="auto"
-              poster="images/logo_auto_shock.webp" width="800" height="450">
+              poster="images/logo_auto_shock.webp" width="800" height="450" fetchpriority="high">
               <source src="videos/hero3.mp4" type="video/mp4" />
             </video>
             <div class="video-overlay"></div>
@@ -888,7 +893,7 @@
                 <path
                   d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
-              <a href="mailto:contacto@autoshock.cl" class="email-link"><span>contacto@autoshock.cl</span></a>
+              <a href="mailto:contacto@amortiguadoresautoshock.cl" class="email-link"><span>contacto@amortiguadoresautoshock.cl</span></a>
             </li>
             <li>
               <svg class="fb-icon" style="
@@ -1043,3 +1048,4 @@
 </body>
 
 </html>
+

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://autoshock.cl/sitemap.xml
+Sitemap: https://amortiguadoresautoshock.cl/sitemap.xml
