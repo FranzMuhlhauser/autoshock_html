@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  initYouTubeFacades(); // Performance optimization for videos
 });
 
 /* ------------------------------------------------
@@ -591,5 +593,49 @@ function initEmailObfuscation() {
   const emailSpans = document.querySelectorAll('.email-text');
   emailSpans.forEach(span => {
     span.textContent = email;
+  });
+}
+
+/* ------------------------------------------------
+   10. YouTube Facade (Performance Optimization)
+   ------------------------------------------------ */
+function initYouTubeFacades() {
+  const facades = document.querySelectorAll(".yt-facade");
+  if (!facades.length) return;
+
+  facades.forEach(facade => {
+    const videoId = facade.dataset.ytId;
+    if (!videoId) return;
+
+    // Set background thumbnail
+    facade.style.backgroundImage = `url('https://i.ytimg.com/vi/${videoId}/hqdefault.jpg')`;
+
+    // Add play button if not already there
+    if (!facade.querySelector(".play-btn")) {
+      const playBtn = document.createElement("div");
+      playBtn.className = "play-btn";
+      playBtn.setAttribute("role", "button");
+      playBtn.setAttribute("aria-label", "Reproducir video");
+      facade.appendChild(playBtn);
+    }
+
+    // On click: replace with iframe
+    facade.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.setAttribute("src", `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.setAttribute("title", facade.dataset.ytTitle || "Video de YouTube");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "true");
+      
+      // Clear facade and append iframe
+      facade.innerHTML = "";
+      facade.appendChild(iframe);
+      
+      // Optional: adjust height if needed
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      facade.style.cursor = "default";
+    }, { once: true });
   });
 }
