@@ -246,6 +246,19 @@
         <div class="mobile-group-wrapper active-group" id="mg-amortiguadores">
           <h3 class="mobile-category-header mobile-only" style="margin-top: 1rem;"><span>🔧</span> Amortiguadores</h3>
 
+          <!-- Sub-menu for Mobile Amortiguadores -->
+          <div class="mobile-nav-buttons mobile-only" id="amortiguadores-submenu">
+            <p class="text-center mb-1" style="font-size: 0.9rem; color: var(--text-muted);">Elige una categoría:</p>
+            <button class="btn btn-outline btn-full mb-1 sub-cat-btn" data-sub="livianos">🚗 Vehículos Livianos</button>
+            <button class="btn btn-outline btn-full mb-1 sub-cat-btn" data-sub="portalon">📦 Portalón</button>
+            <button class="btn btn-outline btn-full sub-cat-btn" data-sub="camiones">🚛 Vehículos Pesados</button>
+          </div>
+
+          <!-- Back Button for Sub-categories (Mobile Only) -->
+          <button class="btn btn-outline btn-full mb-2 mobile-only hide" id="back-to-categories">
+            ⬅ Volver a Categorías
+          </button>
+
           <!-- 1. Livianos -->
           <div class="showcase-content active" id="livianos">
             <article class="showcase-card">
@@ -298,7 +311,7 @@
             </article>
 
             <!-- AEO: Tabla Comparativa para Motores de Respuesta -->
-            <div class="aeo-table-wrapper reveal mt-3">
+            <div class="aeo-table-wrapper reveal mt-3 desktop-only">
               <h3 class="text-center mb-2">¿Gas o Hidráulico? <span>Diferencias Clave</span></h3>
               <table class="comparison-table">
                 <thead>
@@ -551,11 +564,23 @@
       </div>
     </section>
 
-    <!-- Mobile Button Script -->
+    <!-- Mobile Navigation Script (Extended for Sub-menus) -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const mobileBtns = document.querySelectorAll('.mobile-category-btn');
         const mobileGroups = document.querySelectorAll('.mobile-group-wrapper');
+        const subCatBtns = document.querySelectorAll('.sub-cat-btn');
+        const backBtn = document.getElementById('back-to-categories');
+        const amSubmenu = document.getElementById('amortiguadores-submenu');
+
+        // Function to reset all amortiguadores content visibility on mobile
+        function resetAmortiguadoresContent() {
+          const amGroup = document.getElementById('mg-amortiguadores');
+          if (amGroup) {
+            const contents = amGroup.querySelectorAll('.showcase-content');
+            contents.forEach(c => c.classList.remove('active-mobile-show'));
+          }
+        }
 
         if (mobileBtns.length > 0) {
           mobileBtns.forEach(btn => {
@@ -563,12 +588,11 @@
               e.preventDefault();
               const targetId = btn.getAttribute('data-target');
 
-              // Remove active state from all buttons & set logic for outlining
+              // Update category buttons UI
               mobileBtns.forEach(b => {
                 b.classList.remove('btn-primary');
                 b.classList.add('btn-outline');
               });
-              // Make clicked button primary
               btn.classList.remove('btn-outline');
               btn.classList.add('btn-primary');
 
@@ -581,8 +605,47 @@
               const target = document.getElementById(targetId);
               if (target) {
                 target.classList.add('active-group');
+                
+                // Special logic for Amortiguadores
+                if (targetId === 'mg-amortiguadores') {
+                  resetAmortiguadoresContent();
+                  if (amSubmenu) amSubmenu.classList.remove('hide');
+                  if (backBtn) backBtn.classList.add('hide');
+                }
               }
             });
+          });
+        }
+
+        // Sub-category clicks
+        subCatBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const subTarget = btn.getAttribute('data-sub');
+            
+            // Hide sub-menu
+            if (amSubmenu) amSubmenu.classList.add('hide');
+            
+            // Show content
+            resetAmortiguadoresContent();
+            const content = document.getElementById(subTarget);
+            if (content) {
+              content.classList.add('active-mobile-show');
+            }
+            
+            // Show back button
+            if (backBtn) backBtn.classList.remove('hide');
+
+            // Scroll to top of category for better context
+            window.scrollTo({ top: document.getElementById('mg-amortiguadores').offsetTop - 100, behavior: 'smooth' });
+          });
+        });
+
+        // Back to Sub-menu
+        if (backBtn) {
+          backBtn.addEventListener('click', () => {
+            resetAmortiguadoresContent();
+            if (amSubmenu) amSubmenu.classList.remove('hide');
+            backBtn.classList.add('hide');
           });
         }
       });

@@ -460,13 +460,24 @@
         display: none !important;
     }
 
-    /* FIX: solo mostrar showcase-content dentro de grupo activo, evita residuos entre categorías */
-    .showcase-content {
-        display: none !important;
-    }
     .mobile-group-wrapper.active-group .showcase-content {
-        display: block !important;
+        display: none !important; /* Hide all by default, we use active-mobile-show now */
         margin-bottom: 3rem;
+    }
+
+    /* Force visibility for Tren Delantero and Cataliticos (they don't have sub-menus) */
+    #mg-cataliticos.active-group .showcase-content,
+    #mg-tren-delantero.active-group .showcase-content {
+        display: block !important;
+    }
+
+    /* Sub-menu logic: Only show content with this class on mobile */
+    .showcase-content.active-mobile-show {
+        display: block !important;
+    }
+
+    .hide {
+        display: none !important;
     }
 
     .mobile-category-header {
