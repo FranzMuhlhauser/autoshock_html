@@ -1,0 +1,33 @@
+# Plan de Optimización Web: Rendimiento Mobile (>90)
+**Sitio:** amortiguadoresautoshock.cl  
+**Estado Actual:** 88/100  
+**Objetivo:** +90/100
+
+## 1. Optimización Prioritaria de Imágenes (LCP)
+El "Largest Contentful Paint" actual es de **3.0s**. El objetivo es bajarlo de 2.5s para entrar en el rango óptimo.
+
+### Acciones Inmediatas:
+* [cite_start]**Implementar Imágenes Responsivas:** Se detectaron imágenes con dimensiones excesivas (ej. 2800x574) mostradas en contenedores pequeños (112x80). [cite: 59] Debes generar versiones de menor resolución para dispositivos móviles.
+* [cite_start]**Priorizar el Logo:** Aplicar el atributo `fetchpriority="high"` a la imagen del logo y evitar que use `loading="lazy"`. [cite: 59, 61, 63]
+* **Ajustar Compresión:** Incrementar el factor de compresión en archivos como `amortiguadores_camion_index.webp` y el video/poster del hero. [cite_start]El ahorro estimado es de **122.2 KiB**. [cite: 45, 53, 59]
+
+## 2. Reducción de Bloqueo de Renderizado
+[cite_start]Actualmente, el archivo CSS bloquea la visualización inicial durante **170 ms**. [cite: 84, 86]
+
+### Acciones:
+* [cite_start]**Minificación y Crítico:** Aunque el archivo ya es `.min.css`, se recomienda extraer el CSS crítico (solo lo que se ve al cargar la página) e insertarlo directamente en el `<head>`. [cite: 85, 86]
+* [cite_start]**Carga Diferida:** Cargar el resto del CSS de forma asíncrona para que no detenga el renderizado del HTML. [cite: 85]
+
+## 3. Mejora de Accesibilidad y Navegación
+Aunque el enfoque es rendimiento, estos puntos afectan la experiencia de usuario y el puntaje general:
+
+* [cite_start]**Orden de Encabezados:** Corregir la secuencia de los elementos de encabezado (`<h1>`, `<h2>`, etc.) para que sigan un orden descendente lógico. [cite: 101]
+* [cite_start]**Subtítulos en Video:** Añadir etiquetas `<track kind="captions">` a los elementos de video. [cite: 105]
+
+## 4. Diagnósticos Técnicos Adicionales
+* [cite_start]**Animaciones Compuestas:** Revisar el elemento animado detectado que no está compuesto; esto consume ciclos del procesador innecesarios en móviles. [cite: 91]
+* **Tareas Largas:** Se identificaron **2 tareas largas** en el hilo principal. [cite_start]Es necesario revisar scripts de terceros o funciones JS pesadas que puedan estar retrasando la interactividad. [cite: 92]
+* [cite_start]**Seguridad:** Implementar una política de seguridad de contenido (CSP) eficaz y una política de HSTS sólida para mejorar el apartado de "Recomendaciones" (actualmente en 96). [cite: 123, 124]
+
+---
+**Nota:** Al aplicar la compresión de imágenes y la prioridad de carga del LCP, el Speed Index de **4.4s** debería bajar drásticamente, asegurando el puntaje >90.

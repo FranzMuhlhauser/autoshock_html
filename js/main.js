@@ -4,15 +4,25 @@
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+  // === Funciones CRÍTICAS (above the fold, interactividad inmediata) ===
   initMobileMenu();
   initScrollReveal();
   highlightActiveNav();
-  initContactForm();
   initScrollToTop();
-  initProductTabs();
-  initWhatsAppChatbot();
-  initAccordion();
-  initEmailObfuscation(); // Anti-spam email obfuscation
+
+  // === Funciones NO-CRÍTICAS (diferidas para reducir TBT) ===
+  const deferInit = typeof requestIdleCallback === 'function'
+    ? requestIdleCallback
+    : (cb) => setTimeout(cb, 150);
+
+  deferInit(() => {
+    initProductTabs();
+    initAccordion();
+    initWhatsAppChatbot();
+    initContactForm();
+    initEmailObfuscation();
+    initYouTubeFacades();
+  });
 
   // Register Service Worker for offline PWA capabilities
   if ('serviceWorker' in navigator) {
@@ -24,8 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
-  initYouTubeFacades(); // Performance optimization for videos
 });
 
 /* ------------------------------------------------
