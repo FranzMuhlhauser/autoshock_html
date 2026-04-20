@@ -65,6 +65,30 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "autoshock.cl"
+        }
+      ],
+      "destination": "https://amortiguadoresautoshock.cl/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.autoshock.cl"
+        }
+      ],
+      "destination": "https://amortiguadoresautoshock.cl/$1",
+      "permanent": true
+    }
+  ],
   "cleanUrls": true,
   "trailingSlash": false
 }
