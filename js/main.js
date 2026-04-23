@@ -514,86 +514,16 @@ function initProductTabs() {
 
   // Activate a specific tab by its ID
   function activateTab(targetId) {
-    // Find and activate the matching tab button
     tabs.forEach((t) => t.classList.remove("active"));
     const matchingTab = Array.from(tabs).find(t => t.dataset.tab === targetId);
     if (matchingTab) matchingTab.classList.add("active");
 
-    // Show the matching content
     contents.forEach((c) => {
       c.classList.remove("active");
       if (c.id === targetId) {
         c.classList.add("active");
       }
     });
-  }
-
-  // Handle mobile deep linking for hash navigation
-  function activateMobileForHash(targetId) {
-    const isMobile = window.innerWidth <= 768;
-    if (!isMobile) return;
-
-    // Map product IDs to their mobile group wrappers
-    const groupMap = {
-      'livianos': 'mg-amortiguadores',
-      'portalon': 'mg-amortiguadores',
-      'camiones': 'mg-amortiguadores',
-      'cataliticos': 'mg-cataliticos',
-      'tren-delantero': 'mg-tren-delantero'
-    };
-
-    const groupId = groupMap[targetId];
-    if (!groupId) return;
-
-    const mobileGroups = document.querySelectorAll('.mobile-group-wrapper');
-    const mobileBtns = document.querySelectorAll('.mobile-category-btn');
-    const subCatBtns = document.querySelectorAll('.sub-cat-btn');
-    const amSubmenu = document.getElementById('amortiguadores-submenu');
-    const backBtn = document.getElementById('back-to-categories');
-
-    // Activate the correct mobile group
-    mobileGroups.forEach(g => g.classList.remove('active-group'));
-    const targetGroup = document.getElementById(groupId);
-    if (targetGroup) targetGroup.classList.add('active-group');
-
-    // Highlight the correct category button
-    mobileBtns.forEach(b => {
-      b.classList.remove('btn-primary');
-      b.classList.add('btn-outline');
-      if (b.getAttribute('data-target') === groupId) {
-        b.classList.remove('btn-outline');
-        b.classList.add('btn-primary');
-      }
-    });
-
-    // For amortiguadores sub-categories, activate the specific sub-cat
-    if (groupId === 'mg-amortiguadores') {
-      // Hide the sub-menu, show the content directly
-      if (amSubmenu) amSubmenu.classList.add('hide');
-      if (backBtn) backBtn.classList.remove('hide');
-
-      // Reset all sub-cat content
-      const amGroup = document.getElementById('mg-amortiguadores');
-      if (amGroup) {
-        amGroup.querySelectorAll('.showcase-content').forEach(c => {
-          c.classList.remove('active-mobile-show');
-        });
-      }
-
-      // Show the target content
-      const targetContent = document.getElementById(targetId);
-      if (targetContent) targetContent.classList.add('active-mobile-show');
-
-      // Highlight the matching sub-cat button
-      subCatBtns.forEach(b => {
-        b.classList.remove('btn-primary');
-        b.classList.add('btn-outline');
-        if (b.getAttribute('data-sub') === targetId) {
-          b.classList.remove('btn-outline');
-          b.classList.add('btn-primary');
-        }
-      });
-    }
   }
 
   // Tab click handlers
@@ -603,26 +533,12 @@ function initProductTabs() {
     });
   });
 
-  // On page load: check URL hash and activate the correct tab + scroll
-  const hash = window.location.hash.substring(1); // Remove '#'
+  // Desktop-only hash activation (mobile handled by inline script in productos.html)
+  const hash = window.location.hash.substring(1);
   if (hash) {
     const validTabs = ['livianos', 'portalon', 'camiones', 'cataliticos', 'tren-delantero'];
     if (validTabs.includes(hash)) {
-      // Activate the tab (desktop)
       activateTab(hash);
-
-      // Activate mobile navigation
-      activateMobileForHash(hash);
-
-      // Scroll to the product section after a brief delay (allows layout to settle)
-      setTimeout(() => {
-        const targetEl = document.getElementById(hash);
-        if (targetEl) {
-          const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 70;
-          const offset = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
-          window.scrollTo({ top: offset, behavior: 'smooth' });
-        }
-      }, 300);
     }
   }
 }

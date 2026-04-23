@@ -604,6 +604,80 @@
         // Inicializar estado mobile
         initMobileState();
 
+        // ===== DEEP LINKING via URL Hash =====
+        // Runs AFTER initMobileState() so it can override the reset
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+          const validIds = ['livianos', 'portalon', 'camiones', 'cataliticos', 'tren-delantero'];
+          if (validIds.includes(hash)) {
+            // Desktop: activate the correct tab
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.showcase-content');
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            const matchingTab = Array.from(tabs).find(t => t.dataset.tab === hash);
+            if (matchingTab) matchingTab.classList.add('active');
+            const matchingContent = document.getElementById(hash);
+            if (matchingContent) matchingContent.classList.add('active');
+
+            // Mobile: activate the correct group + sub-category
+            if (isMobile()) {
+              const groupMap = {
+                'livianos': 'mg-amortiguadores',
+                'portalon': 'mg-amortiguadores',
+                'camiones': 'mg-amortiguadores',
+                'cataliticos': 'mg-cataliticos',
+                'tren-delantero': 'mg-tren-delantero'
+              };
+              const groupId = groupMap[hash];
+              if (groupId) {
+                // Activate the correct group
+                mobileGroups.forEach(g => g.classList.remove('active-group'));
+                const targetGroup = document.getElementById(groupId);
+                if (targetGroup) targetGroup.classList.add('active-group');
+
+                // Highlight the correct category button
+                mobileBtns.forEach(b => {
+                  b.classList.remove('btn-primary');
+                  b.classList.add('btn-outline');
+                  if (b.getAttribute('data-target') === groupId) {
+                    b.classList.remove('btn-outline');
+                    b.classList.add('btn-primary');
+                  }
+                });
+
+                // For amortiguadores sub-categories, go directly to the product
+                if (groupId === 'mg-amortiguadores') {
+                  if (amSubmenu) amSubmenu.classList.add('hide');
+                  if (backBtn) backBtn.classList.remove('hide');
+                  resetAmortiguadoresContent();
+                  const targetContent = document.getElementById(hash);
+                  if (targetContent) targetContent.classList.add('active-mobile-show');
+                  subCatBtns.forEach(b => {
+                    b.classList.remove('btn-primary');
+                    b.classList.add('btn-outline');
+                    if (b.getAttribute('data-sub') === hash) {
+                      b.classList.remove('btn-outline');
+                      b.classList.add('btn-primary');
+                    }
+                  });
+                }
+              }
+            }
+
+            // Scroll to the product section
+            setTimeout(() => {
+              const targetEl = document.getElementById(hash);
+              if (targetEl) {
+                const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 70;
+                const offset = targetEl.getBoundingClientRect().top + window.scrollY - headerH - 20;
+                window.scrollTo({ top: offset, behavior: 'smooth' });
+              }
+            }, 300);
+          }
+        }
+        // ===== END DEEP LINKING =====
+
         if (mobileBtns.length > 0) {
           mobileBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
